@@ -34,8 +34,8 @@ print('Ready.')
 async def inline_reply(inline_query):
     print('Received a request.')
     try:
-        r1Text = f'{inline_query.query}\n\n{"="*10}<i>"{quote()}"</i>'
-        r2Text = f'{str(datetime.date.today())}\n{inline_query.query}\n\n{"="*10}<i>"{quote()}"</i>'
+        r1Text = f'{inline_query.query}\n\n{"="*10}\n<i>"{quote()}"</i>'
+        r2Text = f'{str(datetime.date.today())}\n{inline_query.query}\n\n{"="*10}\n<i>"{quote()}"</i>'
         r1 = telebot.types.InlineQueryResultArticle('1', '便笺', telebot.types.InputTextMessageContent(r1Text, 'html'), description=r1Text)
         r2 = telebot.types.InlineQueryResultArticle('2', '带日期的便笺', telebot.types.InputTextMessageContent(r2Text, 'html'), description=r2Text)
         await bot.answer_inline_query(inline_query.id, [r1, r2])
