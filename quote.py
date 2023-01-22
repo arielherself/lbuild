@@ -78,7 +78,7 @@ async def autoPost():
         await asyncio.sleep(20)
 
 async def main():
-    t1 = asyncio.create_task(bot.polling())
+    t1 = asyncio.create_task(bot.polling(non_stop=True, timeout=180))
     t2 = asyncio.create_task(autoPost())
     await t1
     await t2
