@@ -57,7 +57,7 @@ async def reply(message):
 async def autoPost():
     global flag
     while True:
-        if datetime.datetime.now().hour == 19:
+        if datetime.datetime.now().hour == 11:
             if flag:
                 m = f'{str(datetime.date.today())} #晚上好\n\n<i>"{quote()}"</i>'
                 for groupID in PUSH_GROUPS:
@@ -65,7 +65,7 @@ async def autoPost():
                 flag = False
             else:
                 pass
-        elif datetime.datetime.now().hour == 0:
+        elif datetime.datetime.now().hour == 16:
             if flag:
                 m = f'{str(datetime.date.today())} #早上好\n\n<i>"{quote()}"</i>'
                 for groupID in PUSH_GROUPS:
