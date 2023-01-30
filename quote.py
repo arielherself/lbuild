@@ -9,7 +9,7 @@ import local_secret
 
 LANG = 'zh'
 MIN_LENGTH = 20
-PUSH_GROUPS = ('5302591220', '-1001529721824', '-1001726734945',)
+PUSH_GROUPS = ('5302591220', '-1001529721824',)
 
 TOKEN = local_secret.LBUILD_QUOTE_BOT_TOKEN
 
@@ -70,6 +70,14 @@ async def autoPost():
                 m = f'{str(datetime.date.today())} #早上好\n\n<i>"{quote()}"</i>'
                 for groupID in PUSH_GROUPS:
                     await bot.send_message(groupID, m, 'html')
+                flag = False
+            else:
+                pass
+        elif datetime.datetime.now().hour == 23:
+            if flag:
+                with open('./data/hello.wav', 'rb') as f:
+                    for groupID in PUSH_GROUPS:
+                        await bot.send_audio(groupID, f, '起床啦！', 13, 'cc', '早上好', protect_content=True)
                 flag = False
             else:
                 pass
