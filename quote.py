@@ -76,8 +76,9 @@ async def autoPost():
         elif datetime.datetime.now().hour == 23:
             if flag:
                 with open('./data/hello.wav', 'rb') as f:
-                    for groupID in PUSH_GROUPS:
-                        await bot.send_audio(groupID, f, '起床啦！', 13, 'cc', '早上好', protect_content=True)
+                    await bot.send_audio(PUSH_GROUPS[0], f, '起床啦！', 13, 'cc', '早上好', protect_content=True)
+                with open('./data/hello1.wav', 'rb') as g:
+                    await bot.send_audio(PUSH_GROUPS[1], g, '起床啦！', 13, 'cc', '早上好', protect_content=True)
                 flag = False
             else:
                 pass
